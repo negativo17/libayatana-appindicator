@@ -1,0 +1,24 @@
+diff -Naur libayatana-appindicator-0.5.92.old/CMakeLists.txt libayatana-appindicator-0.5.92/CMakeLists.txt
+--- libayatana-appindicator-0.5.92.old/CMakeLists.txt	2023-09-15 11:42:54.915113610 +0200
++++ libayatana-appindicator-0.5.92/CMakeLists.txt	2023-09-15 11:43:18.233552406 +0200
+@@ -22,8 +22,6 @@
+ if(ENABLE_COVERAGE)
+     set(ENABLE_TESTS ON)
+     set(CMAKE_BUILD_TYPE "Coverage")
+-else()
+-    set(CMAKE_BUILD_TYPE "Release")
+ endif()
+ 
+ if(ENABLE_WERROR)
+diff -Naur libayatana-appindicator-0.5.92.old/src/CMakeLists.txt libayatana-appindicator-0.5.92/src/CMakeLists.txt
+--- libayatana-appindicator-0.5.92.old/src/CMakeLists.txt	2023-09-15 11:42:54.954114344 +0200
++++ libayatana-appindicator-0.5.92/src/CMakeLists.txt	2023-09-15 11:47:21.652132950 +0200
+@@ -127,7 +127,7 @@
+ target_link_libraries("${ayatana_appindicator_gtkver}" ${PROJECT_DEPS_LIBRARIES})
+ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/lib${ayatana_appindicator_gtkver}.so" DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}")
+ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/lib${ayatana_appindicator_gtkver}.so.1" DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}")
+-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/lib${ayatana_appindicator_gtkver}.so.1.0.0" DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}")
++install(FILES "${CMAKE_CURRENT_BINARY_DIR}/lib${ayatana_appindicator_gtkver}.so.1.0.0" DESTINATION "${CMAKE_INSTALL_FULL_LIBDIR}" PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_WRITE GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ 
+ # AyatanaAppIndicator{,3}-0.1.gir
+ 
